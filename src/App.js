@@ -23,8 +23,9 @@ class App extends Component {
           contacts:this.state.contacts.filter(c=>c.id!==contact.id)
         }
       )
-      
-    ) 
+    )
+    
+    ContactsAPI.remove(contact);
 
   }
 
