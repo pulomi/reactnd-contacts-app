@@ -6,7 +6,7 @@ class App extends Component {
 
   state = {
     contacts: [],
-    screen:'CreateContact'
+    screen:'list'
   }
 
   componentDidMount(){
@@ -30,11 +30,18 @@ class App extends Component {
 
   }
 
+  onAddLinkClick = ()=>{
+    this.setState(()=>({
+      screen : 'create'
+    }))
+  }
+
   render() {
     return (
       <div>
-        {this.state.screen=='List' && <ListContacts contacts={this.state.contacts} removeContact={this.removeContact}/>}
-        {this.state.screen=='CreateContact' && <CreateContact/>}
+        {this.state.screen=='list' && <ListContacts contacts={this.state.contacts} removeContact={this.removeContact} 
+        onAddLinkClick={this.onAddLinkClick}/>}
+        {this.state.screen=='create' && <CreateContact/>}
         
       </div>
     );
